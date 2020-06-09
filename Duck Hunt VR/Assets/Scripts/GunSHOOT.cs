@@ -43,6 +43,12 @@ public class GunSHOOT : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
+            }
+
+            Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
 
