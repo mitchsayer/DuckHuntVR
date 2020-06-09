@@ -30,15 +30,6 @@ public class GunSHOOT : MonoBehaviour
             bRay.SetActive(false);
         }
 
-        if (Input.GetButtonDown("Button5"))
-        {
-            Shoot();
-            bRay.SetActive(true);
-        }
-        if (Input.GetButtonUp("Button5"))
-        {
-            bRay.SetActive(false);
-        }
     }
     void Shoot()
     {
