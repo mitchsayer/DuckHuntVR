@@ -8,6 +8,7 @@ public class JoyCon : MonoBehaviour
     public GameObject Duck;
     public GameObject GunPU;
     public GameObject HiddenGun;
+    //public GameObject bullet;
     PlayerController controls;
 
     void Awake()
@@ -23,7 +24,8 @@ public class JoyCon : MonoBehaviour
     }
     void Shoot()
     {
-        Object.Destroy(Duck);
+        
+        
     }
 
     void PickUp()
