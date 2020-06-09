@@ -10,6 +10,7 @@ public class GunSHOOT : MonoBehaviour
     public GameObject HG;
     public GameObject bRay;
     public Camera fpsCam;
+    public float impactForce = 100f;
     public GameObject impactEffect;
     PlayerController controls;
     
@@ -46,7 +47,7 @@ public class GunSHOOT : MonoBehaviour
             }
             if (hit.rigidbody != null)
             {
-                //hit.rigidbody.AddForce(-hit.normal * impactForce);
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
 
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
