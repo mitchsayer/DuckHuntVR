@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,14 +19,9 @@ public class JoyCon : MonoBehaviour
 
         controls = new PlayerController();
 
-        controls.Gameplay.Shoot.performed += ctx => Shoot();
+        //controls.Gameplay.Shoot.performed += ctx => Shoot();
         controls.Gameplay.PickUp.performed += ctx => PickUp();
 
-    }
-    void Shoot()
-    {
-        
-        
     }
 
     void PickUp()
@@ -37,8 +33,8 @@ public class JoyCon : MonoBehaviour
     {
         controls.Gameplay.Enable();
     }
-    void OnDisable()
-    {
-        controls.Gameplay.Disable();
-    }
+    //void OnDisable()
+    //{
+    //    controls.Gameplay.Disable();
+    //}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GunSHOOT : MonoBehaviour
 {
@@ -9,36 +10,47 @@ public class GunSHOOT : MonoBehaviour
     public GameObject HG;
     public GameObject bRay;
     public Camera fpsCam;
-
+    PlayerController controls;
+    
     void Awake()
     {
+        controls = new PlayerController();
         bRay.SetActive(false);
-
+        controls.Gameplay.Shoot.performed += ctx => Shoot();
     }
     void Update()
     {
-        if (Input.GetButtonDown("Mouse0"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
             bRay.SetActive(true);
         }
-        if(Input.GetButtonUp("Mouse0"))
+        if(Input.GetButtonUp("Fire1"))
         {
             bRay.SetActive(false);
         }
 
-        void Shoot()
+        if (Input.GetButtonDown("Button5"))
         {
+            Shoot();
+            bRay.SetActive(true);
+        }
+        if (Input.GetButtonUp("Button5"))
+        {
+            bRay.SetActive(false);
+        }
+    }
+    void Shoot()
+    {
 
-            RaycastHit hit;
-            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
             {
-                Debug.Log(hit.transform.name);
-                Target target = hit.transform.GetComponent<Target>();
-                if (target != null)
-                {
-                    target.TakeDamage(damage);
-                }
+                target.TakeDamage(damage);
             }
         }
     }
