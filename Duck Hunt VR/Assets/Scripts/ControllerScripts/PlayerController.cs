@@ -49,8 +49,30 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""03d38e59-1b08-4652-8b56-3ceb36c50f10"",
+                    ""path"": ""<SwitchProControllerHID>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a365e266-a224-4d13-9723-e4776fda61fb"",
                     ""path"": ""<HID::Nintendo Wireless Gamepad>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92696d74-9406-4c39-8653-8a1e94936b24"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
