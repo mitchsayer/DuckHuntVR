@@ -511,6 +511,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482774857}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &491495055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 37344559}
+    m_Modifications:
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.92152953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.873803
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.809541
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151589128, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.120881
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249103908151944488, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
+      propertyPath: m_Name
+      value: Impact Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db2e57e4a3114bf4ebc9148d0bbd3d88, type: 3}
 --- !u!1 &495037752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,7 +2172,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 5
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -5264,7 +5343,7 @@ ParticleSystem:
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6190,12 +6269,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877440229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.522}
-  m_LocalScale: {x: 0.34202448, y: 0.34202448, z: 0.34202448}
+  m_LocalPosition: {x: 0, y: 0, z: 0.99}
+  m_LocalScale: {x: 0.18987487, y: 0.18987487, z: 0.18987487}
   m_Children:
   - {fileID: 1419211312}
   m_Father: {fileID: 37344559}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911375958
 GameObject:
@@ -7815,11 +7894,17 @@ PrefabInstance:
         type: 3}
       propertyPath: impactEffect
       value: 
-      objectReference: {fileID: 877440229}
+      objectReference: {fileID: 4249103908151944488, guid: db2e57e4a3114bf4ebc9148d0bbd3d88,
+        type: 3}
     - target: {fileID: 5914490127397105975, guid: dcf712509e1ccc640946a903fe1fff30,
         type: 3}
       propertyPath: impactForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5914490127397105975, guid: dcf712509e1ccc640946a903fe1fff30,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 877440231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf712509e1ccc640946a903fe1fff30, type: 3}

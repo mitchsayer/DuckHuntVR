@@ -12,6 +12,7 @@ public class GunSHOOT : MonoBehaviour
     public Camera fpsCam;
     public float impactForce = 100f;
     public GameObject impactEffect;
+    public ParticleSystem muzzleFlash;
     PlayerController controls;
     
     void Awake()
@@ -35,6 +36,7 @@ public class GunSHOOT : MonoBehaviour
     }
     void Shoot()
     {
+        muzzleFlash.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
