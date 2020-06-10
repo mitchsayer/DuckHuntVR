@@ -7,16 +7,12 @@ using UnityEngine.InputSystem;
 public class JoyCon : MonoBehaviour
 {
     public GameObject Duck;
-    public GameObject GunPU;
-    public GameObject HiddenGun;
+    public GameObject Gun;
     //public GameObject bullet;
     PlayerController controls;
 
     void Awake()
     {
-        GunPU.SetActive(true);
-        HiddenGun.SetActive(false);
-
         controls = new PlayerController();
 
         //controls.Gameplay.Shoot.performed += ctx => Shoot();
@@ -26,8 +22,8 @@ public class JoyCon : MonoBehaviour
 
     void PickUp()
     {
-        GunPU.SetActive(false);
-        HiddenGun.SetActive(true);
+       // GunPU.SetActive(false);
+        //HiddenGun.SetActive(true);
     }
     void OnEnable()
     {

@@ -4,28 +4,32 @@ using UnityEngine;
 
 public class InteractGUN : MonoBehaviour
 {
-    public GameObject HG;
-    public GameObject SG;
-    public bool hgIsActive;
+    public GameObject Hand, Gun;
+    private bool hasGun;
+    PlayerController controls;
 
     void Awake()
     {
-        HG.SetActive(false);
-        hgIsActive = false;
-        SG.SetActive(true);
-    }
-    public void PickupGun()
-    {
-        HG.SetActive(true);
-        hgIsActive = true;
-        SG.SetActive(false);
-        Universe.Instance.HasGun = true;
+        hasGun = false;
+        controls = new PlayerController();
+        controls.Gameplay.PickUp.performed += ctx => PickupGun();
     }
 
-    public void PutdownGun()
+    public void PickupGun()
     {
-        HG.SetActive(false);
-        hgIsActive = false;
-        SG.SetActive(true);
+        Gun.transform.parent = Hand.transform;
+        Gun.transform.localPosition = new Vector3(0, 0, 0);
+        Gun.transform.rotation = new Quaternion(0, 0, 0, 0);
+        Gun.transform.localScale = new Vector3(1, 1, 1);
+
+       hasGun = true;
+       Universe.Instance.HasGun = hasGun;
     }
+
+    //public void PutdownGun()
+    //{
+    //    HG.SetActive(false);
+    //    hgIsActive = false;
+    //    SG.SetActive(true);
+    //}
 }

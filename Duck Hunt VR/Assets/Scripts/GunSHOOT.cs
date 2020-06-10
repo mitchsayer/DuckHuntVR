@@ -7,7 +7,7 @@ public class GunSHOOT : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
-    public GameObject HG;
+    public GameObject Gun;
     public GameObject bRay;
     public Camera fpsCam;
     public float impactForce = 100f;
@@ -23,7 +23,7 @@ public class GunSHOOT : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Universe.Instance.HasGun)
         {
             Shoot();
             bRay.SetActive(true);
@@ -42,13 +42,15 @@ public class GunSHOOT : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
-            Target target = hit.transform.GetComponent<Target>();
+            Duck target = hit.transform.GetComponent<Duck>();
+
             if (target != null)
             {
-                target.TakeDamage(damage);
+                target.Shoot(damage);
             }
             if (hit.rigidbody != null)
             {
+                hit.rigidbody.isKinematic = false;
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
 
