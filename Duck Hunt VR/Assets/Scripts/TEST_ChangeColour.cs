@@ -18,4 +18,9 @@ public class TEST_ChangeColour : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = Color.black;
     }
+
+    public void Yellow()
+    {
+        GetComponent<Renderer>().material.color = Color.yellow;
+    }
 }
