@@ -5,12 +5,24 @@ public class Duck : MonoBehaviour
 {
     public Text Score;
     public int Points = 10;
+    private bool hgIsActive;
+
 
     public void RollDice ()
     {
-        Universe.Instance.Score += Points;
+        print(this.name);
 
-        Score.text = Universe.Instance.Score.ToString();
+        hgIsActive = Universe.Instance.HasGun;
+
+        if (hgIsActive)
+        {
+            Universe.Instance.Score += Points;
+
+            Score.text = Universe.Instance.Score.ToString();
+        }
+        //Universe.Instance.Score += Points;
+
+        //Score.text = Universe.Instance.Score.ToString();
     }
 
     public void Die()

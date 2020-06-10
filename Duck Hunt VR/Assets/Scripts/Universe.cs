@@ -9,6 +9,9 @@ public class Universe : MonoBehaviour
 
     private float m_elapsedTime = 0f;
     public float Time { get { return m_elapsedTime; } set { m_elapsedTime = value; } }
+    
+    private bool hasGun = false;
+    public bool HasGun { get { return hasGun; } set { hasGun = value; } }
 
     private static Universe instance;
 
