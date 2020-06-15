@@ -6,7 +6,7 @@ TextureImporter:
       213: 21300000
     second: MenuCornerTopRightSprite
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -60,7 +60,6 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -92,7 +91,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eebd7162caad0f7469da09e5860302af
+      spriteID: 02305410000000000800000000000000
       internalID: 21300000
       vertices: []
       indices: 
