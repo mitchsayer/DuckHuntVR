@@ -10,7 +10,7 @@ public class CountdownScript : MonoBehaviour
     [SerializeField] private float mainTimer;
 
     private float timer;
-    private bool canCount = true;
+    private bool canCount = false;
     private bool doOnce = false;
 
     public UnityEvent onTimeUp;
@@ -22,20 +22,34 @@ public class CountdownScript : MonoBehaviour
 
     void Update()
     {
-        if (timer >= 0f && canCount)
+        if (canCount)
         {
-            timer -= Time.deltaTime;
-            Universe.Instance.Time = timer;
-            uiText.text = timer.ToString("0");
+            if (timer >= 0f)
+            {
+                timer -= Time.deltaTime;
+                Universe.Instance.Time = timer;
+                uiText.text = timer.ToString("0");
+            }
+            else if (timer <= 0f && !doOnce)
+            {
+                canCount = false;
+                doOnce = true;
+                Universe.Instance.GameState = 3;
+                Universe.Instance.Time = timer;
+                uiText.text = "0";
+                timer = 0f;
+                onTimeUp?.Invoke();
+            }
         }
-        else if (timer <= 0f && !doOnce)
+        else
         {
-            canCount = false;
-            doOnce = true;
-            Universe.Instance.Time = timer;
-            uiText.text = "0";
-            timer = 0f;
-            onTimeUp?.Invoke();
+            if (Universe.Instance.HasGun)
+            {
+                timer = mainTimer;
+            }
+            if (Universe.Instance.GameState == 1)
+                canCount = true;
         }
+    
     }
 }

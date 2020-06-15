@@ -22,8 +22,9 @@ public class InteractGUN : MonoBehaviour
         Gun.transform.rotation = new Quaternion(0, 0, 0, 0);
         Gun.transform.localScale = new Vector3(1, 1, 1);
 
-       hasGun = true;
-       Universe.Instance.HasGun = hasGun;
+        hasGun = true;
+        Universe.Instance.HasGun = hasGun;
+        Universe.Instance.GameState = 1;
     }
 
     //public void PutdownGun()
