@@ -42,11 +42,11 @@ public class GunSHOOT : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
-            Duck target = hit.transform.GetComponent<Duck>();
+            DuckScript target = hit.transform.GetComponent<DuckScript>();
 
             if (target != null)
             {
-                target.Shoot(damage);
+                target.TakeDamage();
             }
             if (hit.rigidbody != null)
             {

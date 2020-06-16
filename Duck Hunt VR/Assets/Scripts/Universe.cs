@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameStates {
     MainMenu = 0,
@@ -8,8 +9,10 @@ public enum GameStates {
     Result
 }
 
-public class Universe : MonoBehaviour
+public class Universe : MonoBehaviour 
 {
+    public Text ScoreBoardDisplay;
+
     private int m_currentScore = 0;
     public int Score { get { return m_currentScore; } set { m_currentScore = value; } }
      
@@ -31,6 +34,10 @@ public class Universe : MonoBehaviour
         instance = this;
     }
 
+    public void Update()
+    {
+        ScoreBoardDisplay.text = Score.ToString();
+    }
 
     public void PrintEvent(string text)
     {
