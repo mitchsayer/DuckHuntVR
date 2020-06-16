@@ -9,11 +9,11 @@ public class JoyCon : MonoBehaviour
     public GameObject Duck;
     public GameObject Gun;
     //public GameObject bullet;
-    PlayerController controls;
+    PlayerController2 controls;
 
     void Awake()
     {
-        controls = new PlayerController();
+        controls = new PlayerController2();
 
         //controls.Gameplay.Shoot.performed += ctx => Shoot();
         controls.Gameplay.PickUp.performed += ctx => PickUp();
