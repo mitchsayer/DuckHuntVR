@@ -9,6 +9,7 @@ public class DuckBelt : MonoBehaviour
     public Transform spawnPoint; 
     public Transform destinationPoint;
     public float despawnDistance = 10;
+    public float pathChangeDistance = 10;
 
     public float duckSpeed = 1;
     public float spawnTime = 60;
@@ -16,18 +17,25 @@ public class DuckBelt : MonoBehaviour
     public float speedIncrease = 0;
     public float speedIncreaseTimeInterval = Mathf.Infinity;
 
+    public List<Vector3> pathPoints;
+
+    public List<DuckScript> ducks;
+
     private float timeSpeed = 1;
 
     private float timeTillNextSpeedIncrease = 0;
 
     private float timeTillNextSpawn = 0.0f;
 
-    private List<DuckScript> ducks;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Initialize Lists
         ducks = new List<DuckScript>();
+        //pathPoints = new List<Vector3>();
+        pathPoints.Add(spawnPoint.position);
+        pathPoints.Add(destinationPoint.position);
     }
 
 
@@ -43,8 +51,37 @@ public class DuckBelt : MonoBehaviour
             if (timeTillNextSpawn <= 0)
                 SpawnDuck();
 
+            //Speed, I am speed
             if (timeTillNextSpeedIncrease <= 0)
                 IncreaseSpeed(speedIncrease);
+
+             
+        }
+
+        int i = 0;
+
+        //Go through all the ducks
+        foreach (DuckScript duck in ducks)
+        {
+
+            //If a duck needs a new path point 
+            if (duck.NeedsPathPoint())
+            {
+                //Change the path
+                duck.pathIter += 1;
+                if (duck.pathIter < pathPoints.Count)
+                    duck.tarPos = pathPoints[duck.pathIter];
+            }
+
+            //If it is time...
+            if (duck.Despawn())
+            {
+                //..then the end is nigh
+                Destroy(duck.gameObject);
+                ducks.RemoveAt(i);
+            }
+
+            i++;
         }
     }
 
@@ -59,12 +96,15 @@ public class DuckBelt : MonoBehaviour
         duck.transform.parent = gameObject.transform;
 
         //Apply the variables to the script
-        script.destinationPos = destinationPoint;
+        script.pathIter = 0;
+        script.tarPos = pathPoints[0];
         script.speed = duckSpeed;
+        script.destinationPos = destinationPoint;
         script.despawnDistance = despawnDistance;
+        script.pathChangeDistance = pathChangeDistance;
 
         //Add to list
-        if(script)
+        if (script)
         ducks.Add(script);
 
         //Reset Timer
@@ -96,4 +136,5 @@ public class DuckBelt : MonoBehaviour
         //Reset Timer
         timeTillNextSpeedIncrease = speedIncreaseTimeInterval;
     }
+     
 }
