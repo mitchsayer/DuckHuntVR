@@ -13,11 +13,11 @@ public class GunSHOOT : MonoBehaviour
     public float impactForce = 100f;
     public GameObject impactEffect;
     public ParticleSystem muzzleFlash;
-    PlayerController controls;
+    PlayerController2 controls;
     
     void Awake()
     {
-        controls = new PlayerController();
+        controls = new PlayerController2();
         bRay.SetActive(false);
         controls.Gameplay.Shoot.performed += ctx => Shoot();
     }

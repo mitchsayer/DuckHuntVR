@@ -6,12 +6,12 @@ public class InteractGUN : MonoBehaviour
 {
     public GameObject Hand, Gun;
     private bool hasGun;
-    PlayerController controls;
+    PlayerController2 controls;
 
     void Awake()
     {
         hasGun = false;
-        controls = new PlayerController();
+        controls = new PlayerController2();
         controls.Gameplay.PickUp.performed += ctx => PickupGun();
     }
 
