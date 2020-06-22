@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Test Scenes/Controller Test Scene.unity
     guid: e241c6769396e9e48ab86d591f2c0aaf
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Test Scenes/TestScene.unity
     guid: 7c518e66bbca9694ab6868fb254ea060
   - enabled: 0
     path: Assets/Scenes/Test Scenes/VRTest.unity
     guid: a07f8aee7e8fed94a9a64c182e48f691
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/VR/Scenes/ControllerModels.unity
     guid: 39cfe7aa0a2d46c47994d8d0308ec663
   m_configObjects:
