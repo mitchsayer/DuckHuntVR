@@ -17,8 +17,8 @@ public class InteractGUN : MonoBehaviour
 
     public void PickupGun()
     {
+        Hand.transform.rotation = new Quaternion(0, 0, 45, -45);
         Gun.transform.parent = HandPos.transform;
-        Hand.transform.localRotation = new Quaternion(0, 90, 0, 0);
         Gun.transform.localPosition = new Vector3(0, 0, 0);
         Gun.transform.rotation = new Quaternion(0, 0, 0, 0);
         Gun.transform.localScale = new Vector3(1, 1, 1);

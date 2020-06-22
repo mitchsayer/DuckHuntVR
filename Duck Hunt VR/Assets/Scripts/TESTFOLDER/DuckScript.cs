@@ -37,6 +37,8 @@ public class DuckScript : MonoBehaviour
     {
         //Get the direction to the path point
         Vector3 moveDir = (tarPos - transform.position).normalized;
+        transform.LookAt(tarPos);
+        transform.Rotate(new Vector3(0, 1, 0), -90);
         //Move along the position at the speed * deltaTime
         transform.position += moveDir * speed * Time.deltaTime;
  
