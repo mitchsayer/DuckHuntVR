@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractGUN : MonoBehaviour
 {
-    public GameObject Hand, Gun;
+    public GameObject HandPos, Gun, Hand;
     private bool hasGun;
     PlayerController2 controls;
 
@@ -17,7 +17,8 @@ public class InteractGUN : MonoBehaviour
 
     public void PickupGun()
     {
-        Gun.transform.parent = Hand.transform;
+        Gun.transform.parent = HandPos.transform;
+        Hand.transform.localRotation = new Quaternion(0, 90, 0, 0);
         Gun.transform.localPosition = new Vector3(0, 0, 0);
         Gun.transform.rotation = new Quaternion(0, 0, 0, 0);
         Gun.transform.localScale = new Vector3(1, 1, 1);
