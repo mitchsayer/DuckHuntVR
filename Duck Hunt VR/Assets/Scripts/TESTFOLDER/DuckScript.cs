@@ -19,11 +19,13 @@ public class DuckScript : MonoBehaviour
 
     public int m_ID { get; set; }
 
+    private float GunForce = 100.0f;
+
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    { 
+
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class DuckScript : MonoBehaviour
     {
         //I like to move it, move it
         Move();
+
     }
 
     public void Move()
@@ -56,13 +59,16 @@ public class DuckScript : MonoBehaviour
         return false;
     }
 
-    public bool TakeDamage()
+    public bool TakeDamage(Vector3 a_dir)
     {
+            Debug.Log("Hit");
         bool l_rtn = !isDead;
         //If were allowed to add points do it
         if (l_rtn)
         {
             Universe.Instance.Score += (int)score;
+            HingeJoint hjCom = GetComponentInChildren<HingeJoint>();
+            hjCom.gameObject.transform.GetComponent<Rigidbody>().AddForce(-a_dir * GunForce);
             isDead = true;
         }
 

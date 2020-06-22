@@ -41,18 +41,19 @@ public class GunSHOOT : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log("Its raycasting ok");
             DuckScript target = hit.transform.GetComponent<DuckScript>();
 
             if (target != null)
             {
-                target.TakeDamage();
+                Debug.Log("Its converting ok");
+                target.TakeDamage(transform.forward.normalized);
             }
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.isKinematic = false;
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
-            }
+            //if (hit.rigidbody != null)
+            //{
+            //    hit.rigidbody.isKinematic = false;
+            //    hit.rigidbody.AddForce(-hit.normal * impactForce);
+            //}
 
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGO, 2f);
